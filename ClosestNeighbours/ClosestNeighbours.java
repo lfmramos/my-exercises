@@ -3,22 +3,18 @@ public class ClosestNeighbours{
 
 	int[] numbers = {0, 5, 1209, 6, 2, 111, 112, 33};
 	
-	int minDifference = Math.abs(numbers[0] - numbers[1]);
-	int firstNumber = numbers[0];
-	int secondNumber = numbers[1];
-
 	// hint: remember Math.abs();
-	for (int i = 0; i < (numbers.length)-1; i++){
-		for (int j = i + 1; j < numbers.length; j++){
-			int difference = Math.abs(numbers[i] - numbers[j]);
-			if(difference < minDifference){
+	int minDifference = Integer.MAX_VALUE;
+	int[] neighbours = new int[2];
+
+	for (int i = 0; i < numbers.length - 1; i++){
+			int difference = Math.abs(numbers[i] - numbers[i+1]); // 5
+			if (difference < minDifference){
 				minDifference = difference;
-				firstNumber = numbers[i];
-				secondNumber = numbers[j];
-			}
+				neighbours[0] = numbers[i];
+				neighbours[1] = numbers[i+1];
 		}
-	}
-	// print result here
-	System.out.println("The two numbers with the smallest difference between them are " + firstNumber + " and " + secondNumber);
+		}
+	System.out.println("The two numbers with the smallest difference between them are " + neighbours[0] + " and " + neighbours[1]);
 	}
 }
