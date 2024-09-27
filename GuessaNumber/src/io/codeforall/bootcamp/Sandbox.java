@@ -6,14 +6,14 @@ public class Sandbox {
 
         Game game1 = new Game();
 
-        Player1 player1 = new Player1();
+        Player player1 = new Player("Luis");
       
-        while(game1.generatedNumGame != player1.generatedNumPlayer1){
+        while(game1.generatedNumGame != player1.generatedNumPlayer){
             player1.generatedNewNumPlayer1();
-            if (game1.generatedNumGame == player1.generatedNumPlayer1) {
-                System.out.println("Both numbers are equal: " + game1.generatedNumGame + " and " + player1.generatedNumPlayer1);
+            if (game1.generatedNumGame == player1.generatedNumPlayer) {
+                System.out.println(player1.name + " won. You rightly guessed the number chosen by the game: " + game1.generatedNumGame);
             } else {
-                System.out.println("The numbers are different: " + game1.generatedNumGame + " and " + player1.generatedNumPlayer1);
+                System.out.println("You chose: " + player1.generatedNumPlayer + "\n You did not guessed the chosen number. Try again.");
             }
         }
     }
