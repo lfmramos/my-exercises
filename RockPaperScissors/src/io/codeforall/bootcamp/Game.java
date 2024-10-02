@@ -1,9 +1,11 @@
 package io.codeforall.bootcamp;
 
 public class Game {
+
     int counterRounds = 1;
     private int setMaxRounds;
     private Player[] players;
+    
     public Game(int setMaxRounds, Player[] players){
         this.setMaxRounds = setMaxRounds;
         this.players = players;
@@ -11,7 +13,8 @@ public class Game {
 
     public void start(){
 
-        while(players. < (setMaxRounds/2)+1  && counterRounds < setMaxRounds){
+        // While is incomplete since I deleted some arguments to make it look like the MCs implementation
+        while(player1 < (setMaxRounds/2)+1  && counterRounds < setMaxRounds){
 
             for (Player player : players){
 
