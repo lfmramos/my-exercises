@@ -11,6 +11,7 @@ public class Player {
     public Player (String name){
         this.name = name;
     }
+
     public static Shapes getShape() {
         Shapes chosenShape = Shapes.values()[new Random().nextInt(Shapes.values().length)];
         return chosenShape;
