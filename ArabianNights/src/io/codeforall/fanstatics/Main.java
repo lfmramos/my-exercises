@@ -5,13 +5,14 @@ public class Main {
 
     public static void main(String[] args) {
 
-        MagicLamp magicLamp = new MagicLamp(2);
+        MagicLamp magicLamp1 = new MagicLamp(2);
+        MagicLamp magicLamp2 = new MagicLamp(10);
 
-        Genie genie = magicLamp.rub(5);
+        Genie genie = magicLamp1.rub(5);
         genie.grantsWishes();
         genie.grantsWishes();
 
-        Genie genie2 = magicLamp.rub(3);
+        Genie genie2 = magicLamp1.rub(3);
         genie2.grantsWishes();
         genie2.grantsWishes();
         genie2.grantsWishes();
@@ -19,7 +20,7 @@ public class Main {
         genie2.grantsWishes();
         genie2.grantsWishes();
 
-        Genie genie3 = magicLamp.rub(5);
+        Genie genie3 = magicLamp1.rub(2);
         genie3.grantsWishes();
         genie3.grantsWishes();
         genie3.grantsWishes();
@@ -28,13 +29,13 @@ public class Main {
         genie3.grantsWishes();
         genie3.grantsWishes();
         genie3.grantsWishes();
-        magicLamp.recyclesGenie(genie3);
+        magicLamp1.recyclesGenie(genie3);
 
-        Genie genie4 = magicLamp.rub(5);
+        Genie genie4 = magicLamp1.rub(5);
         genie4.grantsWishes();
         genie4.grantsWishes();
 
-        Genie genie5 = magicLamp.rub(3);
+        Genie genie5 = magicLamp1.rub(3);
         genie5.grantsWishes();
         genie5.grantsWishes();
         genie5.grantsWishes();
@@ -42,9 +43,12 @@ public class Main {
         genie5.grantsWishes();
         genie5.grantsWishes();
 
-        Genie genie6 = magicLamp.rub(5);
+        Genie genie6 = magicLamp1.rub(5);
         genie6.grantsWishes();
         genie6.grantsWishes();
         genie6.grantsWishes();
+
+        boolean compare = magicLamp1.comparesLamps(magicLamp2);
+        System.out.println(compare ? "\n The lamps are equal." : "\n The lamps are different.");
     }
 }
