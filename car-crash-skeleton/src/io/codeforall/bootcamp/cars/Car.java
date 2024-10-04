@@ -19,7 +19,7 @@ abstract  public class Car {
     }
 
     public Car(){
-        Position position = new Position();
+        this.pos = new Position();
         this.speed = getSpeed();
     }
     public Position getPos() {
