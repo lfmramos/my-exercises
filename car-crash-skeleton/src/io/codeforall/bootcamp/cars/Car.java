@@ -10,23 +10,55 @@ abstract  public class Car {
 
     private int speed;
 
-    public int getSpeed(){
-        return speed;
+    private boolean isCrashed;
+
+    public Car(Position position){
+        pos = position;
+        isCrashed = false;
     }
 
-    public void setSpeed(int speed){
-        this.speed = speed;
-    }
-
-    public Car(){
-        this.pos = new Position();
-        this.speed = getSpeed();
-    }
     public Position getPos() {
         return pos;
     }
 
     public boolean isCrashed() {
         return false;
+    }
+    /**
+     *  This method should be overridden by subclasses to determine their crash state based on specific criteria.
+     *  In this base class, it always returns false.
+     *
+     * @return True if the car is crashed, False otherwise
+     */
+    public void setIsCrashed(boolean isCrashed) {
+        this.isCrashed = isCrashed;
+    }
+
+    public int getSpeed(){
+        return speed;
+    }
+
+    /** This method randomly chooses a direction based on its speed */
+    public void moveRandom() {
+
+        int index = (int) (Math.random() * 4);
+
+        switch(index) {
+            case 0:
+                pos.turnRight(getSpeed());
+                break;
+
+            case 1:
+                pos.turnLeft(getSpeed());
+                break;
+
+            case 2:
+                pos.moveforward(getSpeed());
+                break;
+
+            case 3:
+                pos.moveBackward(getSpeed());
+                break;
+        }
     }
 }
