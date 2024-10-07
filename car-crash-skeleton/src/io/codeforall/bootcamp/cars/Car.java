@@ -1,6 +1,5 @@
 package io.codeforall.bootcamp.cars;
 
-import io.codeforall.bootcamp.Game;
 import io.codeforall.bootcamp.field.Position;
 
 abstract  public class Car {
@@ -51,7 +50,7 @@ abstract  public class Car {
                 pos.turnLeft(getSpeed());
                 break;
             case 2:
-                pos.moveforward(getSpeed());
+                pos.moveForward(getSpeed());
                 break;
             case 3:
                 pos.moveBackward(getSpeed());

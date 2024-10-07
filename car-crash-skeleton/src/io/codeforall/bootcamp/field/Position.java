@@ -44,7 +44,7 @@ public class Position {
      *
      * @param speed The amount of positions to move forward
      */
-    public void moveforward(int speed){
+    public void moveForward(int speed){
         if(row - speed > 0){
             row -= speed;
         }
