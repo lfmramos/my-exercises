@@ -19,5 +19,4 @@ public class Ferrari extends Car{
     public String toString() {
        return "F";
     }
-
 }

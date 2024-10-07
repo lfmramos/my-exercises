@@ -47,15 +47,12 @@ abstract  public class Car {
             case 0:
                 pos.turnRight(getSpeed());
                 break;
-
             case 1:
                 pos.turnLeft(getSpeed());
                 break;
-
             case 2:
                 pos.moveforward(getSpeed());
                 break;
-
             case 3:
                 pos.moveBackward(getSpeed());
                 break;

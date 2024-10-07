@@ -19,5 +19,4 @@ public class Toyota extends Car{
     public String toString() {
         return "T";
     }
-
 }

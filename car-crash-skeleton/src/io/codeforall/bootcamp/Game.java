@@ -17,10 +17,8 @@ public class Game {
 
     // Initialize the field using provided dimensions
     public Game(int cols, int rows, int delay) {
-
         Field.init(cols, rows);
         this.delay = delay;
-
     }
 
     /**
@@ -33,9 +31,7 @@ public class Game {
         for (int i = 0; i < cars.length; i++) {
             cars[i] = CarFactory.getNewCar();
         }
-
         Field.draw(cars);
-
     }
 
     /**
@@ -47,7 +43,6 @@ public class Game {
     public void start() throws InterruptedException {
 
         while (true) {
-
             // Pause for a while
             Thread.sleep(delay);
 
@@ -56,7 +51,6 @@ public class Game {
 
             // Update screen
             Field.draw(cars);
-
         }
 
     }

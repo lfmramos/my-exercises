@@ -10,8 +10,8 @@ public class Position {
      * It uses the Field class (assuming it provides methods to access field dimensions) to randomly set the row and col values within the boundaries of the field.
      * */
     public Position(){
-        this.row = (int) (Math.random() * (Field.getHeight())); //Calls the method getHeight from the Class Field.
-        this.col = (int) (Math.random() * (Field.getWidth())); //Calls the method getWidth from the Class Field.
+        this.row = (int) (Math.random() * Field.getHeight()); //Calls the method getHeight from the Class Field.
+        this.col = (int) (Math.random() * Field.getWidth()); //Calls the method getWidth from the Class Field.
     }
     public int getCol() {
         return col;

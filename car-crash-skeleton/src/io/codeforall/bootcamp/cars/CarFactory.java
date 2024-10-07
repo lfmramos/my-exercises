@@ -13,17 +13,15 @@ public class CarFactory {
      * @return A new Car object (either Ferrari or Toyota)
      */
 
-    public static  Car getNewCar() {
+    public static Car getNewCar() {
 
         int index = (int) (Math.random() * 10);
 
         switch (index){
             case 0:
                 return new Ferrari();
-
             default:
                 return new Toyota();
         }
-
     }
 }

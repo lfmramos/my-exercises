@@ -10,6 +10,5 @@ public class Main {
         // Start the game
         g.init(); // Creates a bunch of cars and randomly puts them in the field
         g.start(); // Starts the car crash animation
-
     }
 }
