@@ -22,9 +22,9 @@ public abstract class Enemy extends GameObject implements Destroyable {
         return health;
     }
 
-    public boolean isDead() {
+/*    public boolean isDead() {
         return health <= 0;
-    }
+    }*/
 
     /**
      * Removes health according to the hit damage
@@ -42,5 +42,4 @@ public abstract class Enemy extends GameObject implements Destroyable {
     public String getMessage() {
         return "Tango Acquired. Taking it down!";
     }
-
 }

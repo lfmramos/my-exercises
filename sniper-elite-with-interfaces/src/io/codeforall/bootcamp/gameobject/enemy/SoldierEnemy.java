@@ -16,11 +16,13 @@ public class SoldierEnemy extends Enemy implements Destroyable {
 
     @Override
     public void hit(int n){
-
     }
 
-/*    @Override
+    @Override
     public boolean isDestroyed(){
+        if(getHealth() == 0){
+            return true;
+        }
         return false;
-    }*/
+    }
 }

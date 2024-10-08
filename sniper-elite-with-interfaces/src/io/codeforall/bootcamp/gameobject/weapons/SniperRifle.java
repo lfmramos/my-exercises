@@ -41,6 +41,5 @@ public class SniperRifle {
         } else {
             System.out.println("It's a miss!");
         }
-
     }
 }

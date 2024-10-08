@@ -14,7 +14,7 @@ import io.codeforall.bootcamp.gameobject.weapons.SniperRifle;
  */
 public class Game {
 
-    public static final double ENEMY_PROBABILITY = 0.6;
+    public static final double ENEMY_PROBABILITY = 0.7;
     public static final int BULLET_DAMAGE = 1;
 
     private GameObject[] gameObjects;
@@ -28,7 +28,6 @@ public class Game {
 
         this.gameObjects = createGameObjects(numberObjects);
         this.sniperRifle = new SniperRifle(BULLET_DAMAGE);
-
     }
 
     /**
@@ -40,9 +39,8 @@ public class Game {
 
             System.out.println(gameObject.getMessage());
 
-            if (gameObject instanceof Destroyable) {
+            if (gameObject instanceof Destroyable target) {
 
-                Destroyable target = (Destroyable) gameObject;
                 while (!target.isDestroyed()) {
 
                     System.out.println("Making the shot...");

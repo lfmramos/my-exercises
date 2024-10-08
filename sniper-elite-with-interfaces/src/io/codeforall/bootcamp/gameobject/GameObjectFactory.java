@@ -14,38 +14,41 @@ public class GameObjectFactory {
 
     public static Destroyable createEnemy() {
 
-       // return Math.random() > 0.5 ? new SoldierEnemy(ENEMY_HEALTH) : new ArmouredEnemy(ENEMY_HEALTH, ARMOUR);
+        // return Math.random() > 0.5 ? new SoldierEnemy(ENEMY_HEALTH) : new ArmouredEnemy(ENEMY_HEALTH, ARMOUR);
         int enemies = (int) (Math.random() * 4);
         System.out.println(enemies);
-        if(enemies < 1){
-            System.out.println("created enemy");
+        if (enemies < 1) {
+            System.out.println("Created a SOLDIER ENEMY");
             return new SoldierEnemy(ENEMY_HEALTH);
         }
-        if(enemies < 2){
-            System.out.println("created enemy");
+        if (enemies < 2) {
+            System.out.println("Created an ARMOURED ENEMY");
             return new ArmouredEnemy(ENEMY_HEALTH, ARMOUR);
-        } else{
+        } else {
+            System.out.println("Created a BARREL");
             return createBarrel();
         }
     }
 
-    public static Barrel createBarrel(){
+    public static Barrel createBarrel() {
         int random = (int) (Math.random() * BarrelType.values().length);
         BarrelType objectType = BarrelType.values()[random];
 
         Barrel object = null;
 
-        switch(objectType){
+        switch (objectType) {
             case PLASTIC:
-                if(random == 0){
+                if (random == 0) {
                     object = new Barrel(BarrelType.PLASTIC);
-                    break;}
+                    break;
+                }
             case WOOD:
-                if(random == 1){
+                if (random == 1) {
                     object = new Barrel(BarrelType.WOOD);
-                    break;}
+                    break;
+                }
             case METAL:
-                if(random == 2)
+                if (random == 2)
                     object = new Barrel(BarrelType.METAL);
         }
         return object;

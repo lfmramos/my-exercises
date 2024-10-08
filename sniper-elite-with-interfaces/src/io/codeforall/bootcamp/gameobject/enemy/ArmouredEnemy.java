@@ -40,8 +40,9 @@ public class ArmouredEnemy extends Enemy implements Destroyable {
     public boolean isDestroyed(){
         //Needs to rewrite this condition to stop the infinite loop
         //This method is replacing the isDead();
-        return health <=0;
-        //return false;
+        //This method needs to get the maxDamage from BarrelType and compare with the currentDamage from this class, and turn True when currentDamage == 0;
+        if(armour == 0 && getHealth() == 0){
+        return true;
+        } return false;
     }
-
 }
