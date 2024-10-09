@@ -12,19 +12,16 @@ public class SimpleGfxGrid implements Grid {
     public static final int PADDING = 10; //Used for including padding on top and left sides of the canvas
     /** By default, the SimpleGfx library includes 10px of padding to the right and bottom sides of the canvas*/
     public static final int CELL_SIZE = 20;
-    public static final int COL_NUM = 80; // The number os columns in the grid
-    private static final int ROW_NUM = 25; // The number of rows in the grid
-    private int row;
-    private int col;
+    //public static final int COL_NUM = 80; // The number os columns in the grid
+    //private static final int ROW_NUM = 25; // The number of rows in the grid
+    private int rows;
+    private int cols;
 
-    private int x;
-    private int y;
+
     public SimpleGfxGrid(int cols, int rows){
         //throw new UnsupportedOperationException();
-        this.col = cols;
-        this.row = rows;
-        this.x = 10;
-        this.y = 10;
+        this.cols = cols;
+        this.rows = rows;
     }
 
     /**
@@ -33,7 +30,7 @@ public class SimpleGfxGrid implements Grid {
     @Override
     public void init() {
         //throw new UnsupportedOperationException();
-        Rectangle rectangle = new Rectangle(10, 10, 1600, 500);
+        Rectangle rectangle = new Rectangle(PADDING, PADDING, this.cols*getCellSize(), this.rows*getCellSize());
         rectangle.draw();
     }
 
@@ -43,7 +40,7 @@ public class SimpleGfxGrid implements Grid {
     @Override
     public int getCols() {
         //throw new UnsupportedOperationException();
-        return COL_NUM;
+        return this.cols;
     }
 
     /**
@@ -52,7 +49,7 @@ public class SimpleGfxGrid implements Grid {
     @Override
     public int getRows() {
         //throw new UnsupportedOperationException();
-        return ROW_NUM;
+        return this.rows;
     }
 
     /**
@@ -61,8 +58,7 @@ public class SimpleGfxGrid implements Grid {
      */
     public int getWidth() {
         //throw new UnsupportedOperationException();
-        int pixelWidth = COL_NUM * CELL_SIZE;
-        return pixelWidth;
+        return this.cols * CELL_SIZE;
     }
 
     /**
@@ -71,8 +67,7 @@ public class SimpleGfxGrid implements Grid {
      */
     public int getHeight() {
         //throw new UnsupportedOperationException();
-        int pixelHeight = ROW_NUM * CELL_SIZE;
-        return pixelHeight;
+        return this.rows * CELL_SIZE;
     }
 
     /**
@@ -81,7 +76,7 @@ public class SimpleGfxGrid implements Grid {
      */
     public int getX() {
         //throw new UnsupportedOperationException();
-        return x;
+        return PADDING;
     }
 
     /**
@@ -90,7 +85,7 @@ public class SimpleGfxGrid implements Grid {
      */
     public int getY() {
         //throw new UnsupportedOperationException();
-        return y;
+        return PADDING;
     }
 
     /**
@@ -108,8 +103,7 @@ public class SimpleGfxGrid implements Grid {
     @Override
     public GridPosition makeGridPosition() {
         //throw new UnsupportedOperationException();
-        GridPosition pos = new SimpleGfxGridPosition(this);
-        return pos;
+        return new SimpleGfxGridPosition(this);
     }
     /**
      * @see Grid#makeGridPosition(int, int)
@@ -117,7 +111,7 @@ public class SimpleGfxGrid implements Grid {
     @Override
     public GridPosition makeGridPosition(int col, int row) {
         //throw new UnsupportedOperationException();
-        return new SimpleGfxGridPosition(this.col, this.row, this);
+        return new SimpleGfxGridPosition(col, row, this);
     }
 
     /**
@@ -125,10 +119,10 @@ public class SimpleGfxGrid implements Grid {
      * @param row index
      * @return y pixel value
      */
-    public int rowToY(int row) {
-        //throw new UnsupportedOperationException();
+    public int rowToY(int row) { //Why is this method unnecessary??
+        throw new UnsupportedOperationException();
         // The conversion of logical position to graphical position
-        return row * getCellSize() + PADDING;
+        //return row * getCellSize() + PADDING;
     }
 
     /**
@@ -136,9 +130,9 @@ public class SimpleGfxGrid implements Grid {
      * @param column index
      * @return x pixel value
      */
-    public int columnToX(int column) {
-        //throw new UnsupportedOperationException();
+    public int columnToX(int column) { //Why is this method unnecessary??
+        throw new UnsupportedOperationException();
         // The conversion of logical position to graphical position
-        return column * getCellSize() + PADDING;
+        //return column * getCellSize() + PADDING;
     }
 }
