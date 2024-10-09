@@ -1,3 +1,5 @@
+package io.codeforall.fanstatics;
+
 import org.academiadecodigo.simplegraphics.graphics.*;
 
 public class Main {
