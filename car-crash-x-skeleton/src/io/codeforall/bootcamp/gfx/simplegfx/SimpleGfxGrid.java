@@ -120,9 +120,9 @@ public class SimpleGfxGrid implements Grid {
      * @return y pixel value
      */
     public int rowToY(int row) { //Why is this method unnecessary??
-        throw new UnsupportedOperationException();
+        //throw new UnsupportedOperationException();
         // The conversion of logical position to graphical position
-        //return row * getCellSize() + PADDING;
+        return row * getCellSize() + PADDING;
     }
 
     /**
@@ -131,8 +131,8 @@ public class SimpleGfxGrid implements Grid {
      * @return x pixel value
      */
     public int columnToX(int column) { //Why is this method unnecessary??
-        throw new UnsupportedOperationException();
+        //throw new UnsupportedOperationException();
         // The conversion of logical position to graphical position
-        //return column * getCellSize() + PADDING;
+        return column * getCellSize() + PADDING;
     }
 }
