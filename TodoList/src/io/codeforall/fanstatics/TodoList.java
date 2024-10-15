@@ -1,27 +1,20 @@
 package io.codeforall.fanstatics;
 
-import java.util.Comparator;
 import java.util.PriorityQueue;
 
-public class TodoList<Task> implements Comparable{
+public class TodoList{
 
-    PriorityQueue<Task> tasks;
+    public PriorityQueue<Task> priorityQueue = new PriorityQueue<>();
 
-    @Override
-    public int compareTo(Object o) {
-        return 0;
+    public boolean add(Importance importance, int priority, String description) {
+        Task task = new Task(importance, priority, description);
+        priorityQueue.add(task);
+        return true;
     }
-
-    public enum Importance {
-        HIGH,
-        MEDIUM,
-        LOW
+    public Task remove(){
+        return priorityQueue.remove();
     }
-
-    TodoList(){
-        tasks = new PriorityQueue<Task>();
-
-
+    public boolean isEmpty(){
+        return priorityQueue.isEmpty();
     }
-
 }
