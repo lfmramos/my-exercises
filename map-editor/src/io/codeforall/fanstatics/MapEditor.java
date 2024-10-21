@@ -6,17 +6,21 @@ import io.codeforall.fanstatics.utils.*;
 
 public class MapEditor {
 
-    // fields
+    // Grid representing the map
     private Grid grid;
+    // Cursor to indicate the current editing position
     private Cursor cursor;
 
-    // constructor
+    /** Constructor to initialize grid and cursor */
     public MapEditor(int numberCols, int numberRows) {
 
         grid = new Grid(numberCols, numberRows);
         cursor = new Cursor();
+        // Create a KeyboardListener to handle user input
         new KeyboardListener(cursor, this);
     }
+
+    /** Function to toggle the painted state of the cell under the cursor */
 
     public void paint() {
 
@@ -30,8 +34,28 @@ public class MapEditor {
         }
     }
 
-    // clear grid
+    /** Function to clear the entire grid */
     public void clearGrid() {
         grid.clear();
+    }
+
+    private String convertToMapString(Cell cell) {
+        StringBuilder sb = new StringBuilder();
+        for (int row = 0; row < cell.getRow(); row++) {
+            for (int col = 0; col < cell.getCol(); col++) {
+                sb.append(grid.getCell(col, row).isPainted() ? 'X' : '-');
+            }
+            sb.append("\n");
+        }
+        return sb.toString();
+    }
+
+    private void loadMapFromString(String mapData) {
+        String[] lines = mapData.split("\n");
+        for (int row = 0; row < lines.length; row++) {
+            for (int col = 0; col < lines[row].length(); col++) {
+                grid.getCell(col, row).setPainted(lines[row].charAt(col) == 'X');
+            }
+        }
     }
 }

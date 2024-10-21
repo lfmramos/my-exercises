@@ -4,13 +4,15 @@ import org.academiadecodigo.simplegraphics.graphics.Rectangle;
 
 public class Cell {
 
-    // fields
+    // Column and row position of the cell
     int col;
     int row;
+    // Graphical representation of the cell
     Rectangle square;
+    // Flag indicating if the cell is painted
     private boolean painted;
 
-    // constructed
+    /** Constructor to initialize cell position and draw it */
     public Cell(int col, int row) {
         this.col = col;
         this.row = row;
@@ -22,6 +24,7 @@ public class Cell {
         painted = false;
     }
 
+    /** Function to paint the cell visually */
     public void paint() {
         painted = true;
         square.fill();
@@ -43,5 +46,14 @@ public class Cell {
 
     public boolean isPainted() {
         return painted;
+    }
+
+    public void setPainted(boolean painted) {
+        this.painted = painted;
+        if (painted) {
+            square.fill();
+        } else {
+            square.draw();
+        }
     }
 }

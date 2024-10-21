@@ -8,19 +8,22 @@ import java.io.*;
 
 public class KeyboardListener implements KeyboardHandler {
 
-    // fields
+    // Cursor reference for position updates
     private Cursor cursor;
+    // MapEditor reference for calling paint and clear functions
     private MapEditor map;
+    // String to hold loaded map data (unused in provided code)
     private String text;
-    //private static final String FILE_PATH = "rsc/map.txt";
+    private static final String FILE_PATH = "rsc/map.txt";
 
-    // constructor
+    /** Constructor to set references and register key listeners */
     public KeyboardListener(Cursor cursor, MapEditor map) {
         this.cursor = cursor;
         this.map = map;
         setup();
     }
 
+    /** Function to register keyboard events for movement, painting, clearing, saving and loading */
     public void setup() {
 
         Keyboard keyboard = new Keyboard(this);
@@ -66,18 +69,28 @@ public class KeyboardListener implements KeyboardHandler {
         keyboard.addEventListener(lKey);
     }
 
-    private void Write(String file) throws IOException {
-        BufferedWriter bWriter = new BufferedWriter(new FileWriter("rsc/map.txt"));
-        bWriter.write(file);
-        bWriter.close();
+    /** Function to write map data to a file (not implemented in provided code) */
+
+    private void Write(String fileData) throws IOException {
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(FILE_PATH))) {
+            writer.write(fileData);
+        }
     }
 
-    private void Read() throws IOException {
-        BufferedReader bReader = new BufferedReader(new FileReader("rsc/map.txt"));
-        text = bReader.readLine();
-        bReader.close();
+    /** Function to read map data from a file (not implemented in provided code) */
+
+    private String Read() throws IOException {
+        try (BufferedReader reader = new BufferedReader(new FileReader(FILE_PATH))) {
+            StringBuilder sb = new StringBuilder();
+            String line;
+            while ((line = reader.readLine()) != null) {
+                sb.append(line).append("\n");
+            }
+            return sb.toString();
+        }
     }
 
+    /** Function to handle key press events */
     @Override
     public void keyPressed(KeyboardEvent keyboardEvent) {
 
@@ -103,21 +116,27 @@ public class KeyboardListener implements KeyboardHandler {
                 break;
             case KeyboardEvent.KEY_S:
                 try {
-                    Write(text);
+                    // Convert the current grid state to a string representation
+                    String mapData = convertToMapString(map.getGrid());
+                    Write(mapData);
                 } catch (IOException e) {
                     throw new RuntimeException(e);
                 }
                 break;
             case KeyboardEvent.KEY_L:
-                try{
-                    Read();
+                try {
+                    String mapData = Read();
+                    // Load the map from the string representation
+                    loadMapFromString(mapData);
                 } catch (IOException e) {
                     throw new RuntimeException(e);
                 }
+                break;
         }
     }
 
     @Override
     public void keyReleased(KeyboardEvent keyboardEvent) {
+        // No actions needed on key release in this implementation
     }
 }

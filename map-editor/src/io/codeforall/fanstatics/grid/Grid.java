@@ -41,4 +41,17 @@ public class Grid {
     public Cell getCell(int numberCols, int numberRows) {
         return cell[numberCols][numberRows];
     }
+
+/*    @Override
+    public String toString() {
+        //StringBuilder
+        StringBuilder stringBuilder = new StringBuilder();
+        for (Cell[] row : rows) {
+            for (Cell col : cols) {
+                stringBuilder.append(cell.isPainted() ? "1" : "0");
+            }
+        }
+        stringBuilder.append("\n");
+        return stringBuilder.toString();
+    }*/
 }

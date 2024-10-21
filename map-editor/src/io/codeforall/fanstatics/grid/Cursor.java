@@ -8,7 +8,7 @@ public class Cursor extends Cell {
     // constructor
     public Cursor() {
         super(1, 1);
-        square.setColor(Color.PINK);
+        square.setColor(Color.ORANGE);
         paint();
     }
 
