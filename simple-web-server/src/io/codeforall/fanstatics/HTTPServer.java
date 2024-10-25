@@ -4,29 +4,40 @@ import java.io.*;
 import java.net.ServerSocket;
 import java.net.Socket;
 
+/**
+ * A simple HTTP Server implementation that handles basic web requests
+ * Supports serving HTML pages, images, and error pages
+ */
 public class HTTPServer {
 
+    /**
+     * Main method to start the HTTP server and handle incoming requests
+     * Currently supports single-threaded operation (one request at a time)
+     * @param args Command line arguments (not used)
+     * @throws IOException If server encounters network or file I/O errors
+     */
     public static void main(String[] args) throws IOException {
 
-        // Define the port number to listen on (clients connect here)
-        int portNumber = 8080;
+        int portNumber = 8080; // Standard HTTP alternative port
 
-        // Create a server socket to listen for incoming connections on the specified port
+        // Initialize server infrastructure
         ServerSocket serverSocket = new ServerSocket(portNumber);
         System.out.println("Server is listening on port " + portNumber + "...");
         System.out.println("Waiting for connection...");
-        // Wait for a client to connect
+        // Block until client connects
         Socket clientSocket = serverSocket.accept();
         System.out.println("Connection accepted from: " + clientSocket.getRemoteSocketAddress());
 
-        // Create a reader to receive data from the client
+        // Set up communication channels
         BufferedReader in = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
 
-        String browserMessage = in.readLine(); // receive message and transform to String.
+        String browserMessage = in.readLine(); // Read HTTP request line
 
+        // Set up response channels
         PrintWriter out = new PrintWriter(clientSocket.getOutputStream(), true);
         OutputStream outputStream = clientSocket.getOutputStream();
 
+        // Route requests based on requested resource
         if (browserMessage.contains("index.html")) {
 
             StringBuilder fileContent = new StringBuilder();
@@ -78,7 +89,6 @@ public class HTTPServer {
             out.println(headerStr);
             outputStream.write(file, 0, file.length);
 
-
         } else if (browserMessage.contains("logo.png")) {
             System.out.println("logo");
             StringBuilder fileContent = new StringBuilder();
@@ -109,43 +119,28 @@ public class HTTPServer {
             StringBuilder fileContent = new StringBuilder();
             BufferedReader reader = new BufferedReader(new FileReader("src/io/codeforall/fanstatics/404.html"));
 
-            // Transform content to String
+            // Read file content
             String line;
             while ((line = reader.readLine()) != null) {
                 fileContent.append(line).append("\n");
             }
+            // Prepare response
             String fileStr = new String(fileContent);
             byte[] file = fileStr.getBytes();
 
-            //header
+            // Construct HTTP header
             String headerStr = new String("HTTP/1.0 404 Not Found\r\n" +
                     "Content-Type: text/html; charset=UTF-8\r\n" +
                     "Content-Length: " + file.length + "\r\n" +
                     "\r\n");
 
+            // Log response
             System.out.println(headerStr);
             System.out.println(file);
 
+            // Send response
             out.println(headerStr);
             outputStream.write(file, 0, file.length);
-
         }
-
-
-
-
-/*        while (true) {
-            // Wait for a message from the client
-            System.out.println("Waiting for message from client...");
-            String messageInTheTerminal = in.readLine();
-
-            // Check if the message is empty or null (client might have disconnected)
-            if (messageInTheTerminal.isEmpty() || messageInTheTerminal != null) {
-                serverSocket.close();
-            }
-            // Print the received message
-            System.out.println(messageInTheTerminal);
-        }*/
     }
 }
-
