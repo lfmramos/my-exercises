@@ -1,6 +1,3 @@
-Here's a README.md file for the repository:
-
-```markdown
 # Bidirectional Integer Range Iterator
 
 A Java implementation of a bidirectional integer range iterator that allows both forward and reverse iteration over a range of integers. This implementation provides a flexible way to iterate over integer ranges while supporting element removal and direction changes.
