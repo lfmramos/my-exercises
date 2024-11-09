@@ -69,7 +69,6 @@ public class LinkedList<T> implements Iterable<T> {
             iterator = iterator.getNext();
             index++;
         }
-
         // Data was not found
         return -1;
     }
@@ -92,7 +91,6 @@ public class LinkedList<T> implements Iterable<T> {
             iterator = iterator.getNext();
             index--;
         }
-
         return null;
     }
 
@@ -119,7 +117,6 @@ public class LinkedList<T> implements Iterable<T> {
             iterator = iterator.getNext();
 
         }
-
         return false;
     }
 
@@ -283,5 +280,4 @@ public class LinkedList<T> implements Iterable<T> {
                     '}';
         }
     }
-
 }
