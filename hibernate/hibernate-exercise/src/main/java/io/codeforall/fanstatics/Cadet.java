@@ -7,7 +7,6 @@ import javax.persistence.*;
 import java.util.Date;
 
 @Entity
-//@Table(name = "cadets")
 public class Cadet {
 
     @Id
@@ -24,6 +23,9 @@ public class Cadet {
     private Date updateTime;
     private String name;
     private Integer age;
+
+    @Embedded
+    private Cfa cfa;
 
     public Integer getId() {
         return id;
@@ -47,5 +49,11 @@ public class Cadet {
 
     public void setAge(Integer age) {
         this.age = age;
+    }
+    public Cfa getCfa() {
+        return cfa;
+    }
+    public void setCfa(Cfa cfa) {
+        this.cfa = cfa;
     }
 }

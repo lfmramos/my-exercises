@@ -17,9 +17,12 @@ public class Sandbox {
 
         // Create a new Cadet entity and set its properties
         Cadet cadet1 = new Cadet();
-        //cadet.setId(1);
+        Cfa cfa1 = new Cfa();
+        cfa1.setUnity("Porto");
+        cfa1.setClass_name("fanSTATICS");
         cadet1.setName("Cristiano");
         cadet1.setAge(39);
+        cadet1.setCfa(cfa1);
 
         // Begin a transaction, persist the Cadet entity, and commit the transaction
         em.getTransaction().begin();
@@ -35,9 +38,12 @@ public class Sandbox {
 
         // Create a new Cadet entity and set its properties
         Cadet cadet2 = new Cadet();
-        //cadet.setId(1);
+        Cfa cfa2 = new Cfa();
+        cfa2.setUnity("Lisbon");
+        cfa2.setClass_name("CTRLfreaks");
         cadet2.setName("Ronaldo");
         cadet2.setAge(39);
+        cadet2.setCfa(cfa2);
 
         // Begin a transaction, persist the Cadet entity, and commit the transaction
         em2.getTransaction().begin();
