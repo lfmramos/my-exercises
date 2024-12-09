@@ -1,0 +1,37 @@
+#column1 {
+    background-color: #00ffff;
+}
+
+#column2 {
+    background-color: #ff00ff;
+}
+
+#column3 {
+    background-color: #ffff00;
+}
+
+#column4 {
+    background-color: #00ff00;
+}
+
+#column5 {
+    background-color: #ff0000;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+td, th {
+    width: 20%;
+    padding: 0px;
+    height: 1200px;
+    margin: 0px;
+}
+
+#container {
+    max-width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+}
