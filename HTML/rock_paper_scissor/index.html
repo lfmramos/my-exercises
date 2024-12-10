@@ -1,40 +1,37 @@
 <!doctype html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-        <title>ROCK x PAPER x SCISSORS</title>
-        <link rel="stylesheet" href="./style.css" />
-        <link rel="icon" href="./favicon.ico" type="image/x-icon" />
-    </head>
 
-    <body>
-        <div id="gameTitle">
-            <h1>ROCK x PAPER x SCISSORS</h1>
-        </div>
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>ROCK x PAPER x SCISSORS</title>
+    <link rel="stylesheet" href="./style.css" />
+    <link rel="icon" href="./favicon.ico" type="image/x-icon" />
+</head>
 
-        <div class="container-app">
-            
-            <div class="game">
-                <div class="player1" id="player1">
-                    <h2>Player 1</h2>
-                    <h3>Score: <span id="player1Score">0</span></h3>
-                    <img id="player1Choice" src="" alt="Player 1 Choice" class="rock" />
-                </div>
+<body>
+    <header id="gameTitle">
+        <h1>ROCK x PAPER x SCISSORS</h1>
+    </header>
+    <main class="container-app">
+        <section class="game">
+            <article class="player" id="player1">
+                <h2>Player 1</h2>
+                <h3>Score: <span id="player1Score">0</span></h3>
+                <img id="player1Choice" src="" alt="Player 1 Choice" class="rock" />
+            </article>
+            <article class="button-container">
+                <button id="button">Play</button>
+            </article>
 
-                <div class="button-container">
-                    <button id="button">Play</button>
-                </div>
-                
-                <div class="player2" id="player2">
-                    <h2>Player 2</h2>
-                    <h3>Score: <span id="player2Score">0</span></h3>
-                    <img id="player2Choice" src="" alt="Player 2 Choice" class="paper" />
-                </div>
-
-            </div>
-        </div>
-        <script src="script.js"></script>
-    </body>
+            <article class="player" id="player2">
+                <h2>Player 2</h2>
+                <h3>Score: <span id="player2Score">0</span></h3>
+                <img id="player2Choice" src="" alt="Player 2 Choice" class="paper" />
+            </article>
+        </section>
+    </main>
+    <script src="script.js"></script>
+</body>
 </html>
